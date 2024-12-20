@@ -3,21 +3,38 @@
 ## Data Generation
 ### Open Source Models for Synthetic AI-Generated Voices
 To build a robust dataset for deepfake audio detection, we'll utilize a variety of state-of-the-art, open-source text-to-speech (TTS) models:
-- **[Coqui TTS](https://github.com/coqui-ai/TTS):** TTS library offering pretrained models in over 1,100 languages. 
-- **[Parler-TTS](https://github.com/huggingface/parler-tts):** lightweight TTS model developed by Hugging Face, capable of generating high-quality, natural-sounding speech.
-- **[MeloTTS](https://github.com/myshell-ai/MeloTTS):** high-quality multilingual TTS library supporting many languages.
-- **[Piper](https://github.com/rhasspy/piper):** fast, local neural TTS system optimized for devices like the Raspberry Pi 4, suitable for real-time applications.
-- **[WhisperSpeech](https://github.com/WhisperSpeech/WhisperSpeech):** open-source TTS system built by inverting OpenAI's Whisper model, aiming to provide a powerful and customizable speech synthesis tool.
-- **[RealtimeTTS](https://github.com/KoljaB/RealtimeTTS):** TTS library designed for real-time applications.
-- **[Real-Time Voice Cloning](https://github.com/CorentinJ/Real-Time-Voice-Cloning):** An open-source project that enables cloning a voice in 5 seconds to generate arbitrary speech in real-time. 
-- **[StyleTTS](https://github.com/StyleTTS/StyleTTS):** TTS model that leverages style diffusion and adversarial training with large speech language models.
-- **[OpenVoice](https://github.com/OpenVoiceAI/OpenVoice):** voice cloning approach that requires only a short audio clip from the reference speaker to replicate their voice and generate speech in multiple languages. 
-- **[F5-TTS](https://github.com/SWivid/F5-TTS):** TTS model capable of zero-shot voice cloning with minimal input.
+- **[Coqui TTS](https://github.com/coqui-ai/TTS)**
+- **[Parler-TTS](https://github.com/huggingface/parler-tts)**
+- **[MeloTTS](https://github.com/myshell-ai/MeloTTS)**
+- **[Piper](https://github.com/rhasspy/piper)**
+- **[WhisperSpeech](https://github.com/WhisperSpeech/WhisperSpeech)**
+- **[RealtimeTTS](https://github.com/KoljaB/RealtimeTTS)**
+- **[Real-Time Voice Cloning](https://github.com/CorentinJ/Real-Time-Voice-Cloning)**
+- **[StyleTTS](https://github.com/StyleTTS/StyleTTS)**
+- **[OpenVoice](https://github.com/OpenVoiceAI/OpenVoice)**
+- **[F5-TTS](https://github.com/SWivid/F5-TTS)**
 
 
-### Open Source Datasets for True Human Voices
-To complement the synthetic audio data, we'll incorporate authentic human speech from reputable open-source datasets commonly used in training TTS and Automatic Speech Recognition (ASR) models:
+### Open source datasets for real human voices
+To complement the synthetic audio data, we'll incorporate authentic human speech from reputable open-source datasets commonly used in training TTS and ASR models:
 - **[LibriSpeech](https://www.openslr.org/12):** corpus of approximately 1,000 hours of read English speech derived from audiobooks.
 - **[VCTK Corpus](https://datashare.ed.ac.uk/handle/10283/3443):** contains speech data from multiple speakers with various accents, useful for multi-speaker TTS and ASR training.
 - **[Common Voice](https://commonvoice.mozilla.org/en/datasets):** open-source project by Mozilla that offers a large dataset of voices in multiple languages, contributed by volunteers.
 - **[Hi-Fi TTS](https://openslr.org/109):** multi-speaker English dataset for training text-to-speech models.
+
+Additionnal deep fake audio detection datasets:
+- **ASVspoof 2019 Dataset**: benchmark dataset widely used for training and evaluating models in detecting spoofed or deepfake audio.
+- **Fake-or-Real (FoR) Dataset**: recent benchmark dataset created with text-to-speech models, divided into four sub-datasets. 
+
+
+## Pretrained models
+- [Transformers based audio models - Hugging Face](https://huggingface.co/docs/transformers/model_doc/xls_r): most of these models are self-supervised, transformer-based models for learning speech representations from raw audio (they perform pretty well on audio classification tasks)
+    - **[AudioSpectrogramTransformer](https://github.com/ast-ml/ast)**
+    - **[Wav2Vec 2.0](https://github.com/pytorch/fairseq/tree/main/examples/wav2vec):**
+    - **WavLM**
+    - **HuBERT**
+    - **XLS-R (Cross-Lingual Speech Representation)**
+
+- [TensorFlow audio models](https://github.com/tensorflow/models/tree/master/research/audioset)
+    - **[VGGish](https://github.com/tensorflow/models/tree/master/research/audioset):**
+    - **[YAMNet](https://github.com/tensorflow/models/tree/master/research/audioset/yamnet):**
