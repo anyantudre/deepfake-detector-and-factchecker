@@ -1,0 +1,4 @@
+datasets 
+soundfile 
+huggingface_hub
+git+https://github.com/huggingface/transformers
