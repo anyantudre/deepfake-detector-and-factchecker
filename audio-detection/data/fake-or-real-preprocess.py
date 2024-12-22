@@ -3,7 +3,7 @@ from datasets import Dataset, Audio, Value, ClassLabel, Features
 from huggingface_hub import login
 
 # Define the path to your dataset
-dataset_path = "fake-or-real/for-norm"
+dataset_path = "fake-or-real/for-rerecorded"
 
 # Initialize lists to store data
 audio_paths = []
@@ -38,7 +38,7 @@ dataset = Dataset.from_dict({
 }, features=features)
 
 # Log in to Hugging Face Hub
-login(token="")  # Replace with your actual token
+login(token="YOUR_HF_TOKEN")  # Replace with your actual token
 
 # Push the dataset to the Hugging Face Hub
-dataset.push_to_hub("anyantudre/fake_or_real_dataset")
+dataset.push_to_hub("ArissBandoss/fake_or_real_dataset_for_rerecorded")

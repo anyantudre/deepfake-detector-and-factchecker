@@ -1,4 +1,5 @@
 datasets 
 soundfile 
+librosa
 huggingface_hub
 git+https://github.com/huggingface/transformers
