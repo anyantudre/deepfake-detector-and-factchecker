@@ -5,3 +5,5 @@
 *.pth
 *.pt
 *.dat
+audios-testing
+temp_video_frames

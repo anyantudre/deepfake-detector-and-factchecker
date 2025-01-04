@@ -6,19 +6,6 @@
 
 [[paper](https://arxiv.org/abs/2307.01426)] [[pre-trained weights](https://github.com/SCLBD/DeepfakeBench/releases/tag/v1.0.1)]
 
-
-
->  ❗️❗️❗️ **News:**
-> 1. **NEW DATASET**: We are excited to introduce our **brand-new deepfake dataset** called DF40, comprising **40 distinct deepfake techniques, even the just released SoTAs**. DF40 is designed for seamless integration into the workflow of DeepfakeBench, allowing you to train or test just as you would with other datasets like Celeb-DF and FF++. Please refer to [DF40 dataset](https://github.com/YZY-stack/DF40) for details.
-> 
-> 2. ** OUR LATEST WORK **: Our latest research paper has been released at [ArXiv](https://arxiv.org/abs/2411.15633). We propose a highly generalizable and efficient detection model that can be used to detect both face deepfake images and synthetic images (not limited to face). We will soon release all the codes implemented by the DeepfakeBench codebase.
->
-> 3. We **implement two recent SoTA video detectors**: [AltFreezing (CVPR 2023)](https://openaccess.thecvf.com/content/CVPR2023/papers/Wang_AltFreezing_for_More_General_Video_Face_Forgery_Detection_CVPR_2023_paper.pdf) and [TALL (ICCV 2023)](https://openaccess.thecvf.com/content/ICCV2023/papers/Xu_TALL_Thumbnail_Layout_for_Deepfake_Video_Detection_ICCV_2023_paper.pdf) on our benchmark. We release their pre-trained weights on FF++ via Google Drive [AltFreezing](https://drive.google.com/file/d/1LAzMhq5FZJfCl2po1WzwVhflISmGudzR/view?usp=sharing) and [TALL](https://drive.google.com/file/d/1BStEqTzHSszSwDOxAjia_jvc-0O_fHy9/view?usp=drive_link). You can also use our codebase to retrain this model from scratch. The training and evaluation processes will be the same as those of other detectors on DeepfakeBench.
->    
-> 4. The pre-trained weights of 3D R50 for training I3D, FTCN, and AltFreezing are [here](https://github.com/SCLBD/DeepfakeBench/releases/download/v1.0.3/I3D_8x8_R50.pth)
-
-
-
 ---
 
 <div align="center"> 
@@ -38,25 +25,6 @@ Welcome to *DeepfakeBench*, your one-stop solution for deepfake detection! Here 
 > ✅ **Standardized Evaluations**: *DeepfakeBench* introduces standardized evaluation metrics and protocols to enhance the transparency and reproducibility of performance evaluations.
 > 
 > ✅ **Extensive Analysis and Insights**: *DeepfakeBench* facilitates an extensive analysis from various perspectives, providing new insights to inspire the development of new technologies.
-
-
----
-
-
-
->  😊 **DeepfakeBench-v2 Updates:**
-> 
-> 1. **34 Detectors are supported**: *DeepfakeBench*, currently, supports a total of **35** detection methods (27 image detectors + 8 video detectors).
-> 
-> 2. **More SoTA detectors are added**: We have implemented more **SoTA and latest** detectors, including: *LSDA (CVPR'24), AltFreezing (CVPR'23), TALL (ICCV'23), IID (CVPR'23), SBI (CVPR'22), SLADD (CVPR'22), FTCN (ICCV'21), etc.*
-> 
-> 3. **Data Preprocessing**: *DeepfakeBench* currently provides **LMDB** for more faster and effective IO.
-> 
-> 4. **Multi-GPUs Training**: *DeepfakeBench* offers **DDP** for multiple GPUs training.
->
-> 5. **Integrated Framework**: *DeepfakeBench* offers an integrated framework, including training, data loading, and evaluation at both the image and video levels.
->
-> 6. **More Evaluation Metrics**: *DeepfakeBench* facilitates a more comprehensive evaluation by including the following metrics: frame-level AUC, video-level AUC, ACC (fake and real), EER, PR, and AP.
 
 ---
 
