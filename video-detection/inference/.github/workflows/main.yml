@@ -34,4 +34,4 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git pull space master --rebase  # Sync with remote changes
-          git push https://ArissBandoss:$HF_TOKEN@huggingface.co/spaces/ArissBandoss/DeepFake-Videos-Detection master
+          git push https://ArissBandoss:$HF_TOKEN@huggingface.co/spaces/ArissBandoss/DeepFake-Videos-Detection main
