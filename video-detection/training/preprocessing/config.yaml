@@ -24,7 +24,7 @@ rearrange:
     default: 'DFDC'
   dataset_root_path: # the root path to the dataset
     type: str
-    default: '/teamspace/studios/this_studio/DeepfakeBench/datasets/rgb/'
+    default: '/teamspace/studios/this_studio/DeepfakeBench/datasets/rgb'
   output_file_path: # the json path to the dataset
     type: str
     default: '/teamspace/studios/this_studio/DeepfakeBench/preprocessing/dataset_json'
@@ -36,17 +36,3 @@ rearrange:
               'end_to_end_level_5','end_to_end_mix_2_distortions','end_to_end_mix_3_distortions',
               'end_to_end_mix_4_distortions','end_to_end_random_level','reenact_postprocess']
     default: 'end_to_end'
-
-to_lmdb:
-  dataset_name: # the name of dataset
-    choices: ['FaceForensics++', 'DeepFakeDetection', 'Celeb-DF-v1', 'Celeb-DF-v2','DFDCP', 'DFDC', 'DeeperForensics-1.0','UADFV','FaceShifter']
-    default: 'FaceForensics++'
-  dataset_root_path: # the root path to the dataset
-    type: str
-    default: './datasets_v2'
-  output_lmdb_dir: # the json path to the dataset
-    type: str
-    default: './datasets_lmdbs'
-  comp: # the compression level of videos, only in the dataset of FaceForensics++.
-    choices: ['raw', 'c23', 'c40']
-    default: 'c23'
