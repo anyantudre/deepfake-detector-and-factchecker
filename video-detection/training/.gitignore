@@ -9,3 +9,4 @@ audios-testing
 temp_video_frames
 .gradio
 *.zip
+*.npy
