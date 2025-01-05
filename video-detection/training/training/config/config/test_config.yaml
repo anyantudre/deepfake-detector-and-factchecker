@@ -2,7 +2,7 @@ mode: test
 lmdb: False
 dataset_root_rgb: './datasets'
 lmdb_dir:  'I:\transform_2_lmdb'
-dataset_json_folder: 'preprocessing/dataset_json_v3'
+dataset_json_folder: '/teamspace/studios/this_studio/DeepfakeBench/preprocessing/dataset_json'
 label_dict:
   # DFD
   DFD_fake: 1
