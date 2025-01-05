@@ -13,5 +13,6 @@ torchvision==0.13.0
 efficientnet-pytorch==0.7.1
 timm==0.6.12
 simplejson
+fvcore
 transformers
 gradio
