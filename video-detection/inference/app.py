@@ -8,6 +8,7 @@ from tqdm import tqdm
 from training.detectors import DETECTOR
 import yaml
 import gradio as gr
+from huggingface_hub import hf_hub_download
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -17,7 +18,7 @@ AVAILABLE_MODELS = [
     "ucf",
 ]
 
-# load the model
+# load the model from HF Model Registry
 def load_model(model_name, config_path, weights_path):
     with open(config_path, 'r') as f:
         config = yaml.safe_load(f)
@@ -55,9 +56,8 @@ def preprocess_video(video_path, output_dir, frame_num=32):
     cap.release()
     return frames
 
-#  inference on a single video
+# inference on a single video
 def infer_video(video_path, model, device):
-    # Preprocess the video
     output_dir = "temp_video_frames"
     frames = preprocess_video(video_path, output_dir)
     
@@ -90,18 +90,21 @@ def infer_video(video_path, model, device):
     prediction = "Fake" if avg_prob > 0.5 else "Real"
     return prediction, avg_prob
 
-# gradio inference function
+# Gradio inference function
 def gradio_inference(video, model_name):
-    config_path = f"/teamspace/studios/this_studio/DeepfakeBench/training/config/detector/{model_name}.yaml"
-    weights_path = f"/teamspace/studios/this_studio/DeepfakeBench/training/weights/{model_name}_best.pth"
+    # Download config and weights from Hugging Face Model Registry
+    repo_id = "ArissBandoss/deepfake-video-classifier"
+    config_filename = f"{model_name}.yaml"
+    weights_filename = f"{model_name}_best.pth"
     
-    if not os.path.exists(config_path):
-        return f"Error: Config file for model '{model_name}' not found at {config_path}."
-    if not os.path.exists(weights_path):
-        return f"Error: Weights file for model '{model_name}' not found at {weights_path}."
+    # Download files
+    config_path = hf_hub_download(repo_id=repo_id, filename=config_filename)
+    weights_path = hf_hub_download(repo_id=repo_id, filename=weights_filename)
     
+    # Load the model
     model = load_model(model_name, config_path, weights_path)
     
+    # Run inference
     prediction, confidence = infer_video(video, model, device)
     return f"Model: {model_name}\nPrediction: {prediction} (Confidence: {confidence:.4f})"
 
