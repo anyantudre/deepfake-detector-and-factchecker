@@ -18,12 +18,18 @@ AVAILABLE_MODELS = [
     "ucf",
 ]
 
-# load the model from HF Model Registry
 def load_model(model_name, config_path, weights_path):
     with open(config_path, 'r') as f:
         config = yaml.safe_load(f)
     
     config['model_name'] = model_name
+    
+    # download the pretrained model from Hugging Face
+    if 'pretrained' in config:
+        pretrained_filename = f"{model_name}_best.pth"
+        repo_id = "ArissBandoss/deepfake-video-classifier"
+        pretrained_path = hf_hub_download(repo_id=repo_id, filename=pretrained_filename)
+        config['pretrained'] = pretrained_path
     
     model_class = DETECTOR[model_name]
     model = model_class(config).to(device)
@@ -32,6 +38,7 @@ def load_model(model_name, config_path, weights_path):
     model.load_state_dict(checkpoint, strict=True)
     model.eval()
     return model
+
 
 # preprocess a single video
 def preprocess_video(video_path, output_dir, frame_num=32):
