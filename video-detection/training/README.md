@@ -22,7 +22,7 @@ pinned: false
 <div align="center"> 
 </div>
 <div style="text-align:center;">
-  <img src="figures/archi.png" style="max-width:60%;">
+  <img src="archi.png" style="max-width:60%;">
 </div>
 
 Welcome to *DeepfakeBench*, your one-stop solution for deepfake detection! Here are some key features of our platform:
