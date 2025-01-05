@@ -1,13 +1,8 @@
 name: CI to HF
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push events but only for the "master" branch
   push:
-    branches: [ "master" ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+    branches: [ "main" ]  # Change from "master" to "main"
 
 jobs:
   sync-to-hub:
@@ -24,14 +19,11 @@ jobs:
           git remote add space https://ArissBandoss:$HF_TOKEN@huggingface.co/spaces/ArissBandoss/DeepFake-Videos-Detection
           git fetch space
 
-      - name: Debug remote
-        run: git remote -v
-
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git pull space master --rebase  # Sync with remote changes
-          git push https://ArissBandoss:$HF_TOKEN@huggingface.co/spaces/ArissBandoss/DeepFake-Videos-Detection main
+          git pull space main --rebase  # Change from "master" to "main"
+          git push https://ArissBandoss:$HF_TOKEN@huggingface.co/spaces/ArissBandoss/DeepFake-Videos-Detection main  # Change from "master" to "main"
