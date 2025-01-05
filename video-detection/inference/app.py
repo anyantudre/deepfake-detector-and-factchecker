@@ -97,14 +97,14 @@ def gradio_inference(video, model_name):
     config_filename = f"{model_name}.yaml"
     weights_filename = f"{model_name}_best.pth"
     
-    # Download files
+    # download files
     config_path = hf_hub_download(repo_id=repo_id, filename=config_filename)
     weights_path = hf_hub_download(repo_id=repo_id, filename=weights_filename)
     
-    # Load the model
+    # load the model
     model = load_model(model_name, config_path, weights_path)
     
-    # Run inference
+    # inference
     prediction, confidence = infer_video(video, model, device)
     return f"Model: {model_name}\nPrediction: {prediction} (Confidence: {confidence:.4f})"
 

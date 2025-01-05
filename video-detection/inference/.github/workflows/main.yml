@@ -25,4 +25,4 @@ jobs:
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push --force https://ArissBandoss:$HF_TOKEN@huggingface.co/spaces/ArissBandoss/DeepFake-Videos-Detection master
+        run: git push --force https://ArissBandoss:$HF_TOKEN@huggingface.co/spaces/ArissBandoss/DeepFake-Videos-Detection main
